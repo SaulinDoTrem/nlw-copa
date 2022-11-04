@@ -34,11 +34,6 @@ export function AuthContextProvider({ children }: AuthProviderProps){
         scopes: ['profile', 'email']
     });
 
-    const usera = {
-        name:'Saulo Klein Nery',
-        avatarUrl: 'https://github.com/SaulinDoTrem.png'
-    };
-
     async function signIn(){
         try{
             setIsUserLoading(true);
