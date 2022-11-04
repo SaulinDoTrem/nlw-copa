@@ -1,7 +1,7 @@
 # nlw-copa
 ## Comandos/Commands:
 Para usar todos os comandos é necessário estar na pasta do respectivo projeto que você quer rodar
-                                web - server - mobile
+## web - server - mobile                    
 You need to be localized in the folder of the respective project you want to run
 
 ### Na web/On web
@@ -20,3 +20,8 @@ You need to be localized in the folder of the respective project you want to run
 
 #### Criar um seed(adiciona alguns dado fictícios para teste)/Create a seed(add some fictitious data for testing)
 'npx prisma seed'
+
+### No mobile/On mobile
+
+#### Roda o app/ Runs app
+'npx expo start'
