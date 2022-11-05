@@ -10,10 +10,11 @@ import { authRoutes } from './routes/auth';
 import { gameRoutes } from './routes/game';
 
 async function bootstrap() {
+    const fastify = Fastify({
+        logger: true,
+    });
+
     try{
-        const fastify = Fastify({
-            logger: true,
-        });
     
         await fastify.register(cors, {
             origin: true,
@@ -36,7 +37,6 @@ async function bootstrap() {
 
         process.exit(1);
     }
-    
 }
 
 bootstrap();
