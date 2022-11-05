@@ -1,4 +1,18 @@
 # nlw-copa
+
+## Observações / Comments
+### Português
+#### Problema de tradução
+Bolão em inglês se chama poll na verdade e em todo o código está escrito pool(piscina), ainda devo mudar isso mais pra frente.  
+
+#### Porta do servidor
+Pra rodar o servidor web tem que comentar a parte do "host: '0.0.0.0'" e pra rodar o mobile só descomentar
+### Inglês
+#### Translate problem
+I thought the right word to 'Bolão' in portuguese was pool, but it's not so all my it's written wrong something i'll change soon.
+
+#### Server port
+If you wanna run server on web you need to comment "host: '0.0.0.0'" but on mobile you need to uncomment
 ## Comandos/Commands:
 Para usar todos os comandos é necessário estar na pasta do respectivo projeto que você quer rodar
 ## web - server - mobile                    

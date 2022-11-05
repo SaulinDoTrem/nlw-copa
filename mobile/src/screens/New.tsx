@@ -1,12 +1,53 @@
-import { Heading, VStack, Text } from "native-base";
-
+import { Heading, VStack, Text, useToast } from "native-base";
+import { api } from "../services/api";
 import Logo from '../assets/logo.svg'
-
+import { useState } from 'react';
 import { Button } from "../components/Button";
 import { Header } from '../components/Header';
 import { Input } from "../components/Input";
+import { Alert } from "react-native";
 
 export function New(){
+
+    const [title, setTitle] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
+    const toast = useToast();
+
+    async function handlePoolCreate(){
+        if(!title.trim()){
+            return toast.show({
+                title: 'Informe um nome para o seu bolão',
+                placement: 'top',
+                bgColor: 'red.500',
+            });
+        }
+
+        try {
+            setIsLoading(true);
+
+            await api.post('/pools', { title });
+
+            toast.show({
+                title: 'Bolão criado com sucesso',
+                placement: 'top',
+                bgColor: 'green.500',
+            });
+
+            setTitle('');
+        } catch(e) {
+            console.log(e);
+
+            toast.show({
+                title: 'Não foi possível criar o bolão',
+                placement: 'top',
+                bgColor: 'red.500',
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
     return(
         <VStack flex={1} bgColor="gray.900">
             <Header title='Criar novo bolão' />
@@ -20,12 +61,16 @@ export function New(){
                 </Heading>
 
                 <Input 
+                    value={title}
                     mb={2}
+                    onChangeText={setTitle}
                     placeholder='Qual o nome do seu bolão?'
                 />
 
                 <Button 
                     title='CRIAR MEU BOLÃO'
+                    onPress={handlePoolCreate}
+                    isLoading={isLoading}
                 />
 
                 <Text color='gray.200' fontSize='sm' textAlign='center' px={10} mt={4}>
