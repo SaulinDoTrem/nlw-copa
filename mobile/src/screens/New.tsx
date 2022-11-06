@@ -15,13 +15,12 @@ export function New(){
     const toast = useToast();
 
     async function handlePoolCreate(){
-        if(!title.trim()){
+        if(!title.trim())
             return toast.show({
                 title: 'Informe um nome para o seu bolão',
                 placement: 'top',
                 bgColor: 'red.500',
             });
-        }
 
         try {
             setIsLoading(true);
@@ -29,7 +28,7 @@ export function New(){
             await api.post('/pools', { title });
 
             toast.show({
-                title: 'Bolão criado com sucesso',
+                title: 'Bolão criado com sucesso!',
                 placement: 'top',
                 bgColor: 'green.500',
             });
@@ -39,7 +38,7 @@ export function New(){
             console.log(e);
 
             toast.show({
-                title: 'Não foi possível criar o bolão',
+                title: 'Não foi possível criar o bolão.',
                 placement: 'top',
                 bgColor: 'red.500',
             });
